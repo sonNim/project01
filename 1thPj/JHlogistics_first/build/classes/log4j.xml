@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+ 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+     
+    <!-- 콘솔 로그 -->
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" 
+                value="[%d{yyyy-MM-dd HH:mm}] %p - %C{1}.%M(%F:%L) | %m%n" />
+        </layout>
+    </appender>
+     
+     
+    <!-- 특정 패키지 출력 설정 -->
+    <logger name="java.sql">
+        <level value="DEBUG"/>
+    </logger>
+ 
+    <!-- 기본 출력 설정 -->
+    <root> 
+        <level value="DEBUG" />
+         <appender-ref ref="CONSOLE" />
+    </root>    
+     
+</log4j:configuration>
